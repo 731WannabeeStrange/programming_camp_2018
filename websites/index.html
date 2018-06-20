@@ -1,0 +1,100 @@
+<!doctype html>
+<html>
+    <head>
+        <title>Hello there</title>
+<style>
+a {
+    color: red;
+    text-decoration: none;
+    padding: 5px;
+    background-color: black;
+}
+nav {
+    background-color: black;
+    text-align: center;
+    margin-bottom: 30px;
+}
+a:hover {
+    color: green;
+}
+h1 {
+    text-align: center;
+}
+.center {
+    margin: 0 auto;
+    max-width: 500px;
+    border: 1px solid black;
+}
+.burndan {
+    width: 100px;
+    height: 200px;
+}
+</style>
+    </head>
+    <body>
+        <h1>hello</h1>
+        <nav>
+            <a href="http://google.com">Google</a>
+            <a href="http://google.com">Google</a>
+            <a href="http://google.com">Google</a>
+            <a href="http://google.com">Google</a>
+            <a href="http://google.com">Google</a>
+        </nav>
+        <div class="center">
+        <canvas id="canvas"></canvas>
+        <img class="burndan"
+             src="https://lh3.googleusercontent.com/-Qwl8HDULJ4A/AAAAAAAAAAI/AAAAAAAAABs/hQkRZeablRY/s640-il/photo.jpg"/>
+        <ol>
+            <li>Finish APUSH asssignments</li>
+            <li>Take english test
+                <ul>
+                    <li>take other test</li>
+                    </ul>
+                </li>
+        </ol>
+        </div>
+
+<script>
+var canvas = document.getElementById("canvas")
+var context = canvas.getContext("2d")
+var x = 95
+var y = 50
+var vx = 1
+var vy = 1
+var ax = .1
+var ay = .1
+var radius = 10
+//
+//
+
+
+
+
+
+function draw() {
+    context.clearRect(0, 0, canvas.width, canvas.height)
+    vx = vx + ax
+    vy = vy + ay
+    x = x + vx
+    y = y + vy
+    if (x + radius > canvas.width) {
+        vx = -vx
+    }
+    if (x - radius < 0) {
+        vx = -vx
+    }
+    if (y + radius > canvas.height) {
+        vy = -vy
+    }
+    if (y - radius < 0) {
+        vy = -vy
+    }
+    context.beginPath()
+    context.arc(x, y, radius, 0, 2*Math.PI)
+    context.stroke()
+    requestAnimationFrame(draw)
+}
+requestAnimationFrame(draw)
+</script>
+    </body>
+</html>
